@@ -1,21 +1,19 @@
-const menuButton = document.querySelector(".menu-button");
-const navLinks = document.querySelector("#nav-links");
-const yearElement = document.querySelector("#current-year");
+const button = document.querySelector('.menu-button');
+const links = document.querySelector('#nav-links');
+const year = document.querySelector('#year');
 
-if (yearElement) {
-  yearElement.textContent = new Date().getFullYear();
-}
+if (year) year.textContent = new Date().getFullYear();
 
-if (menuButton && navLinks) {
-  menuButton.addEventListener("click", () => {
-    const isOpen = navLinks.classList.toggle("open");
-    menuButton.setAttribute("aria-expanded", String(isOpen));
+if (button && links) {
+  button.addEventListener('click', () => {
+    const open = links.classList.toggle('open');
+    button.setAttribute('aria-expanded', String(open));
   });
 
-  navLinks.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => {
-      navLinks.classList.remove("open");
-      menuButton.setAttribute("aria-expanded", "false");
+  links.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      links.classList.remove('open');
+      button.setAttribute('aria-expanded', 'false');
     });
   });
 }
